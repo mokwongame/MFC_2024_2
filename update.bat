@@ -1,4 +1,4 @@
 chcp 65001
 git add --all
-git commit -m "MFC 개발 환경 설정"
+git commit -m "TestDialog 프로젝트 추가"
 git push -u origin master
