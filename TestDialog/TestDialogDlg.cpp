@@ -20,15 +20,15 @@ class CAboutDlg : public CDialogEx
 public:
 	CAboutDlg();
 
-// 대화 상자 데이터입니다.
+	// 대화 상자 데이터입니다.
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_ABOUTBOX };
 #endif
 
-	protected:
+protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 지원입니다.
 
-// 구현입니다.
+	// 구현입니다.
 protected:
 	DECLARE_MESSAGE_MAP()
 };
@@ -52,6 +52,7 @@ END_MESSAGE_MAP()
 
 CTestDialogDlg::CTestDialogDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_TESTDIALOG_DIALOG, pParent)
+	, m_sName(_T("목원이"))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -59,6 +60,7 @@ CTestDialogDlg::CTestDialogDlg(CWnd* pParent /*=nullptr*/)
 void CTestDialogDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Text(pDX, IDC_EDIT1, m_sName);
 }
 
 BEGIN_MESSAGE_MAP(CTestDialogDlg, CDialogEx)

@@ -1,4 +1,4 @@
 chcp 65001
 git add --all
-git commit -m "TestDialog 프로젝트 추가"
+git commit -m "컨트롤 배치 시작"
 git push -u origin master
