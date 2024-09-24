@@ -61,12 +61,14 @@ void CTestDialogDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_EDIT1, m_sName);
+	DDX_Control(pDX, IDC_LIST1, m_lbData);
 }
 
 BEGIN_MESSAGE_MAP(CTestDialogDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_BUTTON1, &CTestDialogDlg::OnBnClickedButton1)
 END_MESSAGE_MAP()
 
 
@@ -155,3 +157,13 @@ HCURSOR CTestDialogDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CTestDialogDlg::OnBnClickedButton1()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	UpdateData(TRUE); // 현재 입력한 정보를 저장(TRUE: 저장할까요?의 답을 TRUE로 설정)
+	// 컨트롤이 제공하는 다양한 변수와 함수를 알려면 Microsoft Learn(번역도 제공)
+	// 현재까지 입력된 정보를 ListBox에 더하기
+	m_lbData.AddString(_T("이름 =") + m_sName); // 유니코드(Unicode)와 ASCII 코드를 구별해야 함; _T(""): 문자열을 유니코드로 변경하는 매크로, T의 의미는 text
+}

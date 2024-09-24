@@ -33,4 +33,6 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	CString m_sName; // member of string named as m_sName
+	afx_msg void OnBnClickedButton1();
+	CListBox m_lbData;
 };
