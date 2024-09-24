@@ -55,6 +55,7 @@ CTestDialogDlg::CTestDialogDlg(CWnd* pParent /*=nullptr*/)
 	, m_sName(_T("목원이"))
 	, m_nPostalCode(35349)
 	, m_sAddress(_T("대전시 서구 도안북로 88"))
+	, m_bVip(FALSE)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -66,6 +67,7 @@ void CTestDialogDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_LIST1, m_lbData);
 	DDX_Text(pDX, IDC_EDIT2, m_nPostalCode);
 	DDX_Text(pDX, IDC_EDIT3, m_sAddress);
+	DDX_Check(pDX, IDC_CHECK1, m_bVip);
 }
 
 BEGIN_MESSAGE_MAP(CTestDialogDlg, CDialogEx)
@@ -175,4 +177,8 @@ void CTestDialogDlg::OnBnClickedButton1()
 	// 우편 번호(숫자) -> 문자열로 변경
 	CString str; str.Format(_T("%d"), m_nPostalCode);
 	m_lbData.AddString(_T("주소 = (") + str + _T(") ") + m_sAddress);
+	// Check Box 확인
+	if (m_bVip) str = _T("중요 인물");
+	else str = _T("보통 사람");
+	m_lbData.AddString(_T("인물 등급 = ") + str);
 }
