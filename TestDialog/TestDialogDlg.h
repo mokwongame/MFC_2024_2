@@ -39,4 +39,8 @@ public:
 	CString m_sAddress;
 	BOOL m_bVip;
 	int m_nGender;
+	CString m_sEnergy;
+	CString m_sSense;
+	CString m_sLife;
+	CString m_sThink;
 };

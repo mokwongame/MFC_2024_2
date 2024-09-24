@@ -57,6 +57,10 @@ CTestDialogDlg::CTestDialogDlg(CWnd* pParent /*=nullptr*/)
 	, m_sAddress(_T("대전시 서구 도안북로 88"))
 	, m_bVip(FALSE)
 	, m_nGender(0)
+	, m_sEnergy(_T("I"))
+	, m_sSense(_T("N"))
+	, m_sThink(_T("F"))
+	, m_sLife(_T("P"))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -70,6 +74,10 @@ void CTestDialogDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT3, m_sAddress);
 	DDX_Check(pDX, IDC_CHECK1, m_bVip);
 	DDX_Radio(pDX, IDC_RADIO1, m_nGender);
+	DDX_CBString(pDX, IDC_COMBO1, m_sEnergy);
+	DDX_CBString(pDX, IDC_COMBO2, m_sSense);
+	DDX_CBString(pDX, IDC_COMBO4, m_sLife);
+	DDX_CBString(pDX, IDC_COMBO3, m_sThink);
 }
 
 BEGIN_MESSAGE_MAP(CTestDialogDlg, CDialogEx)
@@ -191,4 +199,6 @@ void CTestDialogDlg::OnBnClickedButton1()
 	default: str = "모름";
 	}
 	m_lbData.AddString(_T("성별 = ") + str);
+	// Combo Box의 MBTI 확인
+	m_lbData.AddString(_T("MBTI = ") + m_sEnergy + m_sSense + m_sThink + m_sLife);
 }

@@ -207,6 +207,7 @@
     <None Include="res\TestDialog.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\mbti.bmp" />
     <Image Include="res\TestDialog.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
