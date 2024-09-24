@@ -38,4 +38,5 @@ public:
 	int m_nPostalCode;
 	CString m_sAddress;
 	BOOL m_bVip;
+	int m_nGender;
 };

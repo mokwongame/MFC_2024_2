@@ -56,6 +56,7 @@ CTestDialogDlg::CTestDialogDlg(CWnd* pParent /*=nullptr*/)
 	, m_nPostalCode(35349)
 	, m_sAddress(_T("대전시 서구 도안북로 88"))
 	, m_bVip(FALSE)
+	, m_nGender(0)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -68,6 +69,7 @@ void CTestDialogDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT2, m_nPostalCode);
 	DDX_Text(pDX, IDC_EDIT3, m_sAddress);
 	DDX_Check(pDX, IDC_CHECK1, m_bVip);
+	DDX_Radio(pDX, IDC_RADIO1, m_nGender);
 }
 
 BEGIN_MESSAGE_MAP(CTestDialogDlg, CDialogEx)
@@ -181,4 +183,12 @@ void CTestDialogDlg::OnBnClickedButton1()
 	if (m_bVip) str = _T("중요 인물");
 	else str = _T("보통 사람");
 	m_lbData.AddString(_T("인물 등급 = ") + str);
+	// Radio Button 확인
+	switch (m_nGender)
+	{
+	case 0: str = "남성"; break;
+	case 1: str = "여성"; break;
+	default: str = "모름";
+	}
+	m_lbData.AddString(_T("성별 = ") + str);
 }
