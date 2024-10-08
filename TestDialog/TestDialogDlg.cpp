@@ -78,6 +78,8 @@ void CTestDialogDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_CBString(pDX, IDC_COMBO2, m_sSense);
 	DDX_CBString(pDX, IDC_COMBO4, m_sLife);
 	DDX_CBString(pDX, IDC_COMBO3, m_sThink);
+	DDX_Control(pDX, IDC_STATIC1, m_stBirthDate);
+	DDX_Control(pDX, IDC_MONTHCALENDAR1, m_ctMonthCal);
 }
 
 BEGIN_MESSAGE_MAP(CTestDialogDlg, CDialogEx)
@@ -201,4 +203,8 @@ void CTestDialogDlg::OnBnClickedButton1()
 	m_lbData.AddString(_T("성별 = ") + str);
 	// Combo Box의 MBTI 확인
 	m_lbData.AddString(_T("MBTI = ") + m_sEnergy + m_sSense + m_sThink + m_sLife);
+
+	// 생년월일 얻기
+	CTime date;
+	m_ctMonthCal.GetCurSel(date); // get current selection: 현재 선택 날짜 얻기
 }

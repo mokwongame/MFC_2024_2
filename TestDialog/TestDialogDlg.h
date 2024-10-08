@@ -43,4 +43,6 @@ public:
 	CString m_sSense;
 	CString m_sLife;
 	CString m_sThink;
+	CStatic m_stBirthDate;
+	CMonthCalCtrl m_ctMonthCal;
 };
