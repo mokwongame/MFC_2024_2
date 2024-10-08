@@ -61,6 +61,7 @@ CTestDialogDlg::CTestDialogDlg(CWnd* pParent /*=nullptr*/)
 	, m_sSense(_T("N"))
 	, m_sThink(_T("F"))
 	, m_sLife(_T("P"))
+	, m_nPet(0)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -80,6 +81,8 @@ void CTestDialogDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_CBString(pDX, IDC_COMBO3, m_sThink);
 	DDX_Control(pDX, IDC_STATIC1, m_stBirthDate);
 	DDX_Control(pDX, IDC_MONTHCALENDAR1, m_ctMonthCal);
+	DDX_CBIndex(pDX, IDC_COMBO5, m_nPet);
+	DDX_Control(pDX, IDC_PET_BITMAP, m_pcPet);
 }
 
 BEGIN_MESSAGE_MAP(CTestDialogDlg, CDialogEx)
@@ -209,4 +212,20 @@ void CTestDialogDlg::OnBnClickedButton1()
 	m_ctMonthCal.GetCurSel(date); // get current selection: 현재 선택 날짜 얻기
 	str.Format(_T("생년월일 = %d년 %d월 %d일"), date.GetYear(), date.GetMonth(), date.GetDay());
 	m_lbData.AddString(str);
+	m_stBirthDate.SetWindowText(str); // Static text의 캡션 문자열(window text)을 str로 설정(set)
+
+	// 애완 동물 표시
+	CBitmap bitmap;
+	switch (m_nPet) // Combo box의 선택 결과는 m_nPet에 저장
+	{
+	case 1:
+		bitmap.LoadBitmap(IDB_DOG); // 리소스 IDB_DOG를 비트맵으로 가져오기(load)
+		break;
+	case 2:
+		bitmap.LoadBitmap(IDB_CAT);
+		break;
+	default:
+		bitmap.LoadBitmap(IDB_PET);
+	}
+	m_pcPet.SetBitmap(bitmap); // Picture control(CStatic)의 비트맵을 bitmap으로 설정(set)
 }

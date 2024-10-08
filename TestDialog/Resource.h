@@ -8,6 +8,9 @@
 #define IDD_TESTDIALOG_DIALOG           102
 #define IDR_MAINFRAME                   128
 #define IDB_MBTI                        130
+#define IDB_DOG                         132
+#define IDB_CAT                         133
+#define IDB_PET                         134
 #define IDC_EDIT1                       1000
 #define IDC_BUTTON1                     1001
 #define IDC_LIST1                       1002
@@ -23,14 +26,16 @@
 #define IDC_COMBO4                      1013
 #define IDC_MONTHCALENDAR1              1014
 #define IDC_STATIC1                     1015
+#define IDC_COMBO5                      1016
+#define IDC_PET_BITMAP                  1017
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        132
+#define _APS_NEXT_RESOURCE_VALUE        135
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1016
+#define _APS_NEXT_CONTROL_VALUE         1018
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

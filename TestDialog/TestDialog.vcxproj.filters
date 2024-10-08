@@ -62,5 +62,14 @@
     <Image Include="res\mbti.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="res\dog.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\cat.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\pet.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
 </Project>

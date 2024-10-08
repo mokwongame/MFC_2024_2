@@ -45,4 +45,6 @@ public:
 	CString m_sThink;
 	CStatic m_stBirthDate;
 	CMonthCalCtrl m_ctMonthCal;
+	int m_nPet;
+	CStatic m_pcPet;
 };
