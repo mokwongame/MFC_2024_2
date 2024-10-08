@@ -207,4 +207,6 @@ void CTestDialogDlg::OnBnClickedButton1()
 	// 생년월일 얻기
 	CTime date;
 	m_ctMonthCal.GetCurSel(date); // get current selection: 현재 선택 날짜 얻기
+	str.Format(_T("생년월일 = %d년 %d월 %d일"), date.GetYear(), date.GetMonth(), date.GetDay());
+	m_lbData.AddString(str);
 }
