@@ -12,6 +12,19 @@ CPainter::CPainter(void)
 	m_nRectY0 = 20;
 	m_nRectWidth = 150;
 	m_nRectHeight = 100;
+	m_nRectStep = 5;
+}
+
+void CPainter::moveRectDown(void)
+{
+	m_nRectY0 += m_nRectStep;
+	//Invalidate(TRUE); // 무효화하다
+}
+
+void CPainter::moveRectUp(void)
+{
+	m_nRectY0 -= m_nRectStep;
+	//Invalidate(TRUE); // 무효화하다
 }
 
 void CPainter::OnPaint() // WM_PAINT 메시지가 발생할 때 처리하는 함수

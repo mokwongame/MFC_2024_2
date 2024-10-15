@@ -52,6 +52,8 @@ END_MESSAGE_MAP()
 
 COurPainterDlg::COurPainterDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_OURPAINTER_DIALOG, pParent)
+	, m_nRectX0(0)
+	, m_nRectY0(0)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -59,12 +61,18 @@ COurPainterDlg::COurPainterDlg(CWnd* pParent /*=nullptr*/)
 void COurPainterDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Text(pDX, IDC_EDIT1, m_nRectX0);
+	DDX_Text(pDX, IDC_EDIT2, m_nRectY0);
 }
 
 BEGIN_MESSAGE_MAP(COurPainterDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_BUTTON1, &COurPainterDlg::OnBnClickedButton1)
+	ON_BN_CLICKED(IDC_BUTTON4, &COurPainterDlg::OnBnClickedButton4)
+	ON_BN_CLICKED(IDC_BUTTON3, &COurPainterDlg::OnBnClickedButton3)
+	ON_BN_CLICKED(IDC_BUTTON2, &COurPainterDlg::OnBnClickedButton2)
 END_MESSAGE_MAP()
 
 
@@ -161,3 +169,35 @@ HCURSOR COurPainterDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+// 사각형을 위로 이동
+void COurPainterDlg::OnBnClickedButton1()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	m_paint.moveRectUp();
+	Invalidate(TRUE);
+	m_nRectY0 = m_paint.getRectY0();
+	UpdateData(FALSE);
+}
+
+// 사각형을 아래로 이동
+void COurPainterDlg::OnBnClickedButton4()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	m_paint.moveRectDown();
+	Invalidate(TRUE);
+	m_nRectY0 = m_paint.getRectY0();
+	UpdateData(FALSE);
+}
+
+// 사각형을 왼쪽으로 이동
+void COurPainterDlg::OnBnClickedButton3()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+}
+
+// 사각형을 오른쪽으로 이동
+void COurPainterDlg::OnBnClickedButton2()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+}

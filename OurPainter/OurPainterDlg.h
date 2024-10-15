@@ -33,4 +33,11 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 	CPainter m_paint; // 우리가 그림을 그릴 컨트롤 선언
+public:
+	afx_msg void OnBnClickedButton1();
+	afx_msg void OnBnClickedButton4();
+	afx_msg void OnBnClickedButton3();
+	afx_msg void OnBnClickedButton2();
+	int m_nRectX0;
+	int m_nRectY0;
 };
