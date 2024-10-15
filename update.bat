@@ -1,4 +1,4 @@
 chcp 65001
 git add --all
-git commit -m "개인 정보 입력기 완성"
+git commit -m "OurPainter 프로젝트 시작"
 git push -u origin master
