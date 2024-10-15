@@ -183,6 +183,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CPainter.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="OurPainter.h" />
     <ClInclude Include="OurPainterDlg.h" />
@@ -191,6 +192,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CPainter.cpp" />
     <ClCompile Include="OurPainter.cpp" />
     <ClCompile Include="OurPainterDlg.cpp" />
     <ClCompile Include="pch.cpp">

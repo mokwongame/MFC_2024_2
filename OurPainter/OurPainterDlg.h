@@ -4,24 +4,25 @@
 
 #pragma once
 
+#include "CPainter.h"
 
 // COurPainterDlg 대화 상자
 class COurPainterDlg : public CDialogEx
 {
-// 생성입니다.
+	// 생성입니다.
 public:
 	COurPainterDlg(CWnd* pParent = nullptr);	// 표준 생성자입니다.
 
-// 대화 상자 데이터입니다.
+	// 대화 상자 데이터입니다.
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_OURPAINTER_DIALOG };
 #endif
 
-	protected:
+protected:
 	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV 지원입니다.
 
 
-// 구현입니다.
+	// 구현입니다.
 protected:
 	HICON m_hIcon;
 
@@ -31,4 +32,5 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
+	CPainter m_paint; // 우리가 그림을 그릴 컨트롤 선언
 };

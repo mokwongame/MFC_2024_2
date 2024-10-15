@@ -107,6 +107,8 @@ BOOL COurPainterDlg::OnInitDialog()
 	pWnd->GetWindowRect(rect); // window의 사각형(rectangle) 크기 얻기; 사각형 크기는 rect에 담김; 이때 좌표계는 화면(screen) 좌표계를 사용
 	ScreenToClient(rect); // 화면 좌표계를 클라이언트(client) 좌표계로 변경; 화면 상 위치가 아니고 앱 기준 위치로 변경
 
+	m_paint.Create(NULL, WS_CHILD | WS_VISIBLE | WS_CLIPCHILDREN | WS_CLIPSIBLINGS, rect, this);
+
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
 }
 
