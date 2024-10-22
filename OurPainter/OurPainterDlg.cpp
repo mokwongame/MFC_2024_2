@@ -31,6 +31,7 @@ protected:
 	// 구현입니다.
 protected:
 	DECLARE_MESSAGE_MAP()
+public:
 };
 
 CAboutDlg::CAboutDlg() : CDialogEx(IDD_ABOUTBOX)
@@ -175,7 +176,7 @@ void COurPainterDlg::OnBnClickedButton1()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 	m_paint.moveRectUp();
-	Invalidate(TRUE);
+	//Invalidate(TRUE);
 	m_nRectY0 = m_paint.getRectY0();
 	UpdateData(FALSE);
 }
@@ -185,7 +186,7 @@ void COurPainterDlg::OnBnClickedButton4()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 	m_paint.moveRectDown();
-	Invalidate(TRUE);
+	//Invalidate(TRUE);
 	m_nRectY0 = m_paint.getRectY0();
 	UpdateData(FALSE);
 }

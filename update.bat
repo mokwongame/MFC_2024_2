@@ -1,4 +1,4 @@
 chcp 65001
 git add --all
-git commit -m "MyPainter 프로젝트 추가"
+git commit -m "배경 지우기 기능 추가"
 git push -u origin master
