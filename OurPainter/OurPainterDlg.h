@@ -40,4 +40,7 @@ public:
 	afx_msg void OnBnClickedButton2();
 	int m_nRectX0;
 	int m_nRectY0;
+	int m_nRectStep;
+	afx_msg void OnBnClickedButton5();
+	CSpinButtonCtrl m_spinRectStep;
 };

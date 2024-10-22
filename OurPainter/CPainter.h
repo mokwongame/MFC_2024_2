@@ -11,6 +11,10 @@ public:
 
 	int getRectX0(void) const { return m_nRectX0; }
 	int getRectY0(void) const { return m_nRectY0; }
+	int getRectStep(void) const { return m_nRectStep; }
+
+	void setRectStep(int nStep) { m_nRectStep = nStep; }
+
 	void moveRectDown(void);
 	void moveRectUp(void);
 

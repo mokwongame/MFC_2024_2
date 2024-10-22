@@ -55,6 +55,7 @@ COurPainterDlg::COurPainterDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_OURPAINTER_DIALOG, pParent)
 	, m_nRectX0(0)
 	, m_nRectY0(0)
+	, m_nRectStep(0)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -64,6 +65,8 @@ void COurPainterDlg::DoDataExchange(CDataExchange* pDX)
 	CDialogEx::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_EDIT1, m_nRectX0);
 	DDX_Text(pDX, IDC_EDIT2, m_nRectY0);
+	DDX_Text(pDX, IDC_EDIT3, m_nRectStep);
+	DDX_Control(pDX, IDC_SPIN1, m_spinRectStep);
 }
 
 BEGIN_MESSAGE_MAP(COurPainterDlg, CDialogEx)
@@ -74,6 +77,7 @@ BEGIN_MESSAGE_MAP(COurPainterDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON4, &COurPainterDlg::OnBnClickedButton4)
 	ON_BN_CLICKED(IDC_BUTTON3, &COurPainterDlg::OnBnClickedButton3)
 	ON_BN_CLICKED(IDC_BUTTON2, &COurPainterDlg::OnBnClickedButton2)
+	ON_BN_CLICKED(IDC_BUTTON5, &COurPainterDlg::OnBnClickedButton5)
 END_MESSAGE_MAP()
 
 
@@ -117,6 +121,10 @@ BOOL COurPainterDlg::OnInitDialog()
 	ScreenToClient(rect); // 화면 좌표계를 클라이언트(client) 좌표계로 변경; 화면 상 위치가 아니고 앱 기준 위치로 변경
 
 	m_paint.Create(NULL, WS_CHILD | WS_VISIBLE | WS_CLIPCHILDREN | WS_CLIPSIBLINGS, rect, this);
+
+	m_nRectStep = m_paint.getRectStep();
+	UpdateData(FALSE);
+	m_spinRectStep.SetRange(0, 100); // ScrollBar의 방향을 수학 Y축과 같게 설정
 
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
 }
@@ -201,4 +209,12 @@ void COurPainterDlg::OnBnClickedButton3()
 void COurPainterDlg::OnBnClickedButton2()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+}
+
+// 속성 설정
+void COurPainterDlg::OnBnClickedButton5()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	UpdateData(TRUE);
+	m_paint.setRectStep(m_nRectStep);
 }

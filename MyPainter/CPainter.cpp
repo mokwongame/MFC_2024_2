@@ -126,10 +126,10 @@ BOOL CPainter::OnEraseBkgnd(CDC* pDC)
 	// 색깔을 도형에 채울 때는 CBrush
 	CBrush brush;
 	brush.CreateSolidBrush(m_backCol); // brush를 단일색으로 생성; 입력은 color reference(RGB를 표현하는 정수: 8비트*3 = 24비트 = 2^24)
-	CBrush* pOldBrush = pDC->SelectObject(&brush); // &의미: 포인터(주소)를 생성
+	//CBrush* pOldBrush = pDC->SelectObject(&brush); // &의미: 포인터(주소)를 생성
 	CRect rect;
 	GetClientRect(rect); // 클라이언트(client)의 사각형(rect) 영역 얻기(get)
 	pDC->FillRect(rect, &brush);
-	pDC->SelectObject(pOldBrush); // 원래 brush를 다시 선택
+	//pDC->SelectObject(pOldBrush); // 원래 brush를 다시 선택
 	return CStatic::OnEraseBkgnd(pDC);
 }
