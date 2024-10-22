@@ -43,4 +43,7 @@ public:
 	int m_nRectStep;
 	afx_msg void OnBnClickedButton5();
 	CSpinButtonCtrl m_spinRectStep;
+	CSliderCtrl m_slidRectWid;
+	CSliderCtrl m_slidRectHt;
+	afx_msg void OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
 };

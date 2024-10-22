@@ -67,6 +67,8 @@ void COurPainterDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT2, m_nRectY0);
 	DDX_Text(pDX, IDC_EDIT3, m_nRectStep);
 	DDX_Control(pDX, IDC_SPIN1, m_spinRectStep);
+	DDX_Control(pDX, IDC_SLIDER_WID, m_slidRectWid);
+	DDX_Control(pDX, IDC_SLIDER_HT, m_slidRectHt);
 }
 
 BEGIN_MESSAGE_MAP(COurPainterDlg, CDialogEx)
@@ -78,6 +80,7 @@ BEGIN_MESSAGE_MAP(COurPainterDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON3, &COurPainterDlg::OnBnClickedButton3)
 	ON_BN_CLICKED(IDC_BUTTON2, &COurPainterDlg::OnBnClickedButton2)
 	ON_BN_CLICKED(IDC_BUTTON5, &COurPainterDlg::OnBnClickedButton5)
+	ON_WM_HSCROLL()
 END_MESSAGE_MAP()
 
 
@@ -125,6 +128,9 @@ BOOL COurPainterDlg::OnInitDialog()
 	m_nRectStep = m_paint.getRectStep();
 	UpdateData(FALSE);
 	m_spinRectStep.SetRange(0, 100); // ScrollBar의 방향을 수학 Y축과 같게 설정
+
+	m_slidRectWid.SetRange(0, 300);
+	m_slidRectWid.SetPos(m_paint.getRectWid());
 
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
 }
@@ -217,4 +223,17 @@ void COurPainterDlg::OnBnClickedButton5()
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 	UpdateData(TRUE);
 	m_paint.setRectStep(m_nRectStep);
+	m_paint.setRectWid(m_slidRectWid.GetPos());
+}
+
+void COurPainterDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
+{
+	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
+	if (pScrollBar->GetDlgCtrlID() == IDC_SLIDER_WID)
+	{
+		CSliderCtrl* pSlider = (CSliderCtrl*)pScrollBar;
+		int nWid = pSlider->GetPos();
+		m_paint.setRectWid(nWid);
+	}
+	CDialogEx::OnHScroll(nSBCode, nPos, pScrollBar);
 }
