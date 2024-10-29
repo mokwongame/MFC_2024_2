@@ -15,6 +15,8 @@ CPainter::CPainter(void)
 	m_nRectHeight = 100;
 	m_nRectStep = 5;
 	m_nBackCol = RGB(0, 255, 0); // green color
+	m_nRectCol = RGB(255, 0, 0);
+	m_nRectLineCol = RGB(0, 0, 255);
 }
 
 void CPainter::moveRectDown(void)
@@ -34,7 +36,15 @@ void CPainter::OnPaint() // WM_PAINT 메시지가 발생할 때 처리하는 함수
 	CPaintDC dc(this); // device context for painting
 	// TODO: 여기에 메시지 처리기 코드를 추가합니다.
 	// 그리기 메시지에 대해서는 CStatic::OnPaint()을(를) 호출하지 마십시오.
+	CBrush brush;
+	brush.CreateSolidBrush(m_nRectCol);
+	CBrush* pOldBrush = dc.SelectObject(&brush);
+	CPen pen;
+	pen.CreatePen(PS_SOLID, 3, m_nRectLineCol);
+	CPen* pOldPen = dc.SelectObject(&pen);
 	dc.Rectangle(m_nRectX0, m_nRectY0, m_nRectX0 + m_nRectWidth, m_nRectY0 + m_nRectHeight); // 사각형 그리기
+	dc.SelectObject(pOldBrush);
+	dc.SelectObject(pOldPen);
 }
 
 
