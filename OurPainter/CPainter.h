@@ -13,6 +13,7 @@ public:
 	int getRectY0(void) const { return m_nRectY0; }
 	int getRectStep(void) const { return m_nRectStep; }
 	int getRectWid(void) const { return m_nRectWidth; }
+	COLORREF getBackCol(void) const { return m_nBackCol; }
 
 	void setRectStep(int nStep) { m_nRectStep = nStep; }
 	void setRectWid(int nWid)
@@ -20,6 +21,7 @@ public:
 		m_nRectWidth = nWid;
 		Invalidate(TRUE);
 	}
+	void setBackCol(COLORREF col) { m_nBackCol = col; }
 
 	void moveRectDown(void);
 	void moveRectUp(void);
@@ -30,6 +32,7 @@ protected:
 	int m_nRectWidth; // 사각형의 너비
 	int m_nRectHeight;	// 사각형의 높이
 	int m_nRectStep;	// 사각형 이동의 스텝
+	COLORREF m_nBackCol;	// 배경색의 저장 공간: color reference(RGB); RGB 매크로를 써서 R, G, B를 각각 8비트(0~255)씩 입력
 
 public:
 	DECLARE_MESSAGE_MAP()

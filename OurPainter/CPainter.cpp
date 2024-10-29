@@ -14,6 +14,7 @@ CPainter::CPainter(void)
 	m_nRectWidth = 150;
 	m_nRectHeight = 100;
 	m_nRectStep = 5;
+	m_nBackCol = RGB(0, 255, 0); // green color
 }
 
 void CPainter::moveRectDown(void)
@@ -41,7 +42,8 @@ BOOL CPainter::OnEraseBkgnd(CDC* pDC)
 {
 	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
 	CBrush brush;
-	brush.CreateSolidBrush(RGB(255, 255, 255));  // 흰색: RGB(255, 255, 255)
+	//brush.CreateSolidBrush(RGB(255, 255, 255));  // 흰색: RGB(255, 255, 255)
+	brush.CreateSolidBrush(m_nBackCol);
 	//CBrush* pOldBrush = pDC->SelectObject(&brush); // & 의미: brush의 포인터(주소)
 	CRect rect;
 	GetClientRect(&rect);

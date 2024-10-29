@@ -69,6 +69,7 @@ void COurPainterDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_SPIN1, m_spinRectStep);
 	DDX_Control(pDX, IDC_SLIDER_WID, m_slidRectWid);
 	DDX_Control(pDX, IDC_SLIDER_HT, m_slidRectHt);
+	DDX_Control(pDX, IDC_MFCCOLORBUTTON1, m_btBackCol);
 }
 
 BEGIN_MESSAGE_MAP(COurPainterDlg, CDialogEx)
@@ -81,6 +82,7 @@ BEGIN_MESSAGE_MAP(COurPainterDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON2, &COurPainterDlg::OnBnClickedButton2)
 	ON_BN_CLICKED(IDC_BUTTON5, &COurPainterDlg::OnBnClickedButton5)
 	ON_WM_HSCROLL()
+	ON_BN_CLICKED(IDC_MFCCOLORBUTTON1, &COurPainterDlg::OnBnClickedMfccolorbutton1)
 END_MESSAGE_MAP()
 
 
@@ -131,6 +133,9 @@ BOOL COurPainterDlg::OnInitDialog()
 
 	m_slidRectWid.SetRange(0, 300);
 	m_slidRectWid.SetPos(m_paint.getRectWid());
+
+	// 색깔 설정
+	m_btBackCol.SetColor(m_paint.getBackCol());
 
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
 }
@@ -236,4 +241,13 @@ void COurPainterDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 		m_paint.setRectWid(nWid);
 	}
 	CDialogEx::OnHScroll(nSBCode, nPos, pScrollBar);
+}
+
+// 배경색 변경
+void COurPainterDlg::OnBnClickedMfccolorbutton1()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	// 색깔 가져오기 -> m_paint에 설정
+	m_paint.setBackCol(m_btBackCol.GetColor());
+	m_paint.Invalidate(TRUE);
 }

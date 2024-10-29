@@ -46,4 +46,6 @@ public:
 	CSliderCtrl m_slidRectWid;
 	CSliderCtrl m_slidRectHt;
 	afx_msg void OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
+	afx_msg void OnBnClickedMfccolorbutton1();
+	CMFCColorButton m_btBackCol;
 };
