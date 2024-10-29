@@ -8,7 +8,6 @@
 #define IDD_OURPAINTER_DIALOG           102
 #define IDR_MAINFRAME                   128
 #define IDB_SPACE                       131
-#define IDB_BITMAP1                     132
 #define IDB_SPACE_OBJ                   132
 #define IDB_SPACE_SHAD                  133
 #define IDC_PAINT                       1000
@@ -24,6 +23,7 @@
 #define IDC_SLIDER_WID                  1010
 #define IDC_SLIDER_HT                   1011
 #define IDC_MFCCOLORBUTTON1             1012
+#define IDC_PROGRESS1                   1013
 
 // Next default values for new objects
 // 
@@ -31,7 +31,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        134
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1013
+#define _APS_NEXT_CONTROL_VALUE         1014
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

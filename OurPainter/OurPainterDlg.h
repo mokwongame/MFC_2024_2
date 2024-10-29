@@ -49,4 +49,6 @@ public:
 	afx_msg void OnBnClickedMfccolorbutton1();
 	CMFCColorButton m_btBackCol;
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	CProgressCtrl m_ctProg;
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 };

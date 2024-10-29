@@ -70,6 +70,7 @@ void COurPainterDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_SLIDER_WID, m_slidRectWid);
 	DDX_Control(pDX, IDC_SLIDER_HT, m_slidRectHt);
 	DDX_Control(pDX, IDC_MFCCOLORBUTTON1, m_btBackCol);
+	DDX_Control(pDX, IDC_PROGRESS1, m_ctProg);
 }
 
 BEGIN_MESSAGE_MAP(COurPainterDlg, CDialogEx)
@@ -83,6 +84,7 @@ BEGIN_MESSAGE_MAP(COurPainterDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON5, &COurPainterDlg::OnBnClickedButton5)
 	ON_WM_HSCROLL()
 	ON_BN_CLICKED(IDC_MFCCOLORBUTTON1, &COurPainterDlg::OnBnClickedMfccolorbutton1)
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 
@@ -136,6 +138,13 @@ BOOL COurPainterDlg::OnInitDialog()
 
 	// 색깔 설정
 	m_btBackCol.SetColor(m_paint.getBackCol());
+
+	// Progress control 설정: 예시로 timer로 조절
+	m_ctProg.SetRange(0, 3000);
+	m_ctProg.SetPos(0);
+
+	// timer 시작
+	SetTimer(1, 100, NULL); // 1: 타이머 ID; 100: 호출 주기(msec); NULL: 콜백 함수가 없음
 
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
 }
@@ -270,4 +279,17 @@ BOOL COurPainterDlg::PreTranslateMessage(MSG* pMsg)
 		}
 	}
 	return CDialogEx::PreTranslateMessage(pMsg);
+}
+
+
+void COurPainterDlg::OnTimer(UINT_PTR nIDEvent)
+{
+	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
+	if (nIDEvent == 1)
+	{
+		// progress control의 위치를 1만큼 증가
+		m_ctProg.SetPos(m_ctProg.GetPos() + 1);
+	}
+
+	CDialogEx::OnTimer(nIDEvent);
 }
