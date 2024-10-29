@@ -32,6 +32,8 @@ protected:
 	int m_nRectWidth; // 사각형의 너비
 	int m_nRectHeight;	// 사각형의 높이
 	int m_nRectStep;	// 사각형 이동의 스텝
+	int m_nBitX0;	// 비트맵의 x좌표
+	int m_nBitY0;	// 비트맵의 y좌표
 	COLORREF m_nBackCol;	// 배경색의 저장 공간: color reference(RGB); RGB 매크로를 써서 R, G, B를 각각 8비트(0~255)씩 입력
 	COLORREF m_nRectCol;	// 사각형의 색깔
 	COLORREF m_nRectLineCol;	// 사각형 윤곽선의 색깔

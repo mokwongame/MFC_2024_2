@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "CPainter.h"
+#include "Resource.h"
 
 BEGIN_MESSAGE_MAP(CPainter, CStatic)
 	ON_WM_PAINT()
@@ -17,6 +18,9 @@ CPainter::CPainter(void)
 	m_nBackCol = RGB(0, 255, 0); // green color
 	m_nRectCol = RGB(255, 0, 0);
 	m_nRectLineCol = RGB(0, 0, 255);
+
+	m_nBitX0 = 20;
+	m_nBitY0 = 30;
 }
 
 void CPainter::moveRectDown(void)
@@ -36,6 +40,7 @@ void CPainter::OnPaint() // WM_PAINT 메시지가 발생할 때 처리하는 함수
 	CPaintDC dc(this); // device context for painting
 	// TODO: 여기에 메시지 처리기 코드를 추가합니다.
 	// 그리기 메시지에 대해서는 CStatic::OnPaint()을(를) 호출하지 마십시오.
+	// 사각형 그리기
 	CBrush brush;
 	brush.CreateSolidBrush(m_nRectCol);
 	CBrush* pOldBrush = dc.SelectObject(&brush);
@@ -45,6 +50,17 @@ void CPainter::OnPaint() // WM_PAINT 메시지가 발생할 때 처리하는 함수
 	dc.Rectangle(m_nRectX0, m_nRectY0, m_nRectX0 + m_nRectWidth, m_nRectY0 + m_nRectHeight); // 사각형 그리기
 	dc.SelectObject(pOldBrush);
 	dc.SelectObject(pOldPen);
+
+	// 비트맵 그리기
+	CBitmap bitmap;
+	bitmap.LoadBitmap(IDB_SPACE);
+	CDC memDc; // 메모리에 먼저 그리는 걸 도와주는 DC
+	memDc.CreateCompatibleDC(&dc);
+	CBitmap* pOldBitmap = memDc.SelectObject(&bitmap);
+	// bit blt: bit block transfer - 비트 블록(bit block)를 통쳐로 화면으로 전송(transfer)
+	// SRCCOPY: 비트맵으로 덮어쓰기
+	dc.BitBlt(m_nBitX0, m_nBitY0, 150, 150, &memDc, 0, 0, SRCCOPY);
+	memDc.SelectObject(pOldBitmap);
 }
 
 
