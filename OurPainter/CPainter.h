@@ -26,6 +26,9 @@ public:
 	void moveRectDown(void);
 	void moveRectUp(void);
 
+	void moveBitDown(void);
+	void moveBitUp(void);
+
 protected:
 	int m_nRectX0; // 사각형의 x좌표
 	int m_nRectY0; // 사각형의 y좌표

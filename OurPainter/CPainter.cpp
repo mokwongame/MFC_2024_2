@@ -35,6 +35,18 @@ void CPainter::moveRectUp(void)
 	Invalidate(TRUE); // 무효화하다
 }
 
+void CPainter::moveBitDown(void)
+{
+	m_nBitY0 += m_nRectStep;
+	Invalidate(TRUE);
+}
+
+void CPainter::moveBitUp(void)
+{
+	m_nBitY0 -= m_nRectStep;
+	Invalidate(TRUE);
+}
+
 void CPainter::OnPaint() // WM_PAINT 메시지가 발생할 때 처리하는 함수
 {
 	CPaintDC dc(this); // device context for painting

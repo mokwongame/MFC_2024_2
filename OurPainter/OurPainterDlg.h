@@ -48,4 +48,5 @@ public:
 	afx_msg void OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
 	afx_msg void OnBnClickedMfccolorbutton1();
 	CMFCColorButton m_btBackCol;
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 };

@@ -251,3 +251,23 @@ void COurPainterDlg::OnBnClickedMfccolorbutton1()
 	m_paint.setBackCol(m_btBackCol.GetColor());
 	m_paint.Invalidate(TRUE);
 }
+
+// 메시지(message) 번역(translate) 전(pre)에 호출되는 가상 함수
+BOOL COurPainterDlg::PreTranslateMessage(MSG* pMsg)
+{
+	// TODO: 여기에 특수화된 코드를 추가 및/또는 기본 클래스를 호출합니다.
+	if (pMsg->message == WM_KEYDOWN)
+	{
+		if (pMsg->wParam == VK_UP || pMsg->wParam == 'W') // VK: virtual key, 가상키
+		{
+			m_paint.moveBitUp();
+			return TRUE;
+		}
+		else if (pMsg->wParam == VK_DOWN || pMsg->wParam == 'S')
+		{
+			m_paint.moveBitDown();
+			return TRUE;
+		}
+	}
+	return CDialogEx::PreTranslateMessage(pMsg);
+}
