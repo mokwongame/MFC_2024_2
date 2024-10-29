@@ -211,6 +211,8 @@
   <ItemGroup>
     <Image Include="res\OurPainter.ico" />
     <Image Include="res\spaceship.bmp" />
+    <Image Include="res\spaceship_obj.bmp" />
+    <Image Include="res\spaceship_shadow.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

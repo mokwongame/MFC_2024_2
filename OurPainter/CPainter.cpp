@@ -65,13 +65,23 @@ void CPainter::OnPaint() // WM_PAINT 메시지가 발생할 때 처리하는 함수
 
 	// 비트맵 그리기
 	CBitmap bitmap;
-	bitmap.LoadBitmap(IDB_SPACE);
+	//bitmap.LoadBitmap(IDB_SPACE);
+	// 그림자 비트맵 조건: 그림자는 검정색, 배경은 흰색
+	// 물체 비트맵 조건: 배경은 검정색
+	bitmap.LoadBitmap(IDB_SPACE_SHAD); // 그림자 비트맵
 	CDC memDc; // 메모리에 먼저 그리는 걸 도와주는 DC
 	memDc.CreateCompatibleDC(&dc);
 	CBitmap* pOldBitmap = memDc.SelectObject(&bitmap);
 	// bit blt: bit block transfer - 비트 블록(bit block)를 통쳐로 화면으로 전송(transfer)
 	// SRCCOPY: 비트맵으로 덮어쓰기
-	dc.BitBlt(m_nBitX0, m_nBitY0, 150, 150, &memDc, 0, 0, SRCCOPY);
+	// SRCAND: and 연산으로 쓰기 - 0(검정) & b = 0(검정), 1(흰색) & b = b(원래색)
+	// SRCPAINT: or 연산으로 쓰기 - 0 | b = b(원래색), 1(흰색) | b = 1(흰색)
+	//dc.BitBlt(m_nBitX0, m_nBitY0, 150, 150, &memDc, 0, 0, SRCCOPY);
+	dc.BitBlt(m_nBitX0, m_nBitY0, 150, 150, &memDc, 0, 0, SRCAND);
+	bitmap.DeleteObject(); // 비트맵 소멸
+	bitmap.LoadBitmap(IDB_SPACE_OBJ); // 물체 비트맵
+	memDc.SelectObject(&bitmap);
+	dc.BitBlt(m_nBitX0, m_nBitY0, 150, 150, &memDc, 0, 0, SRCPAINT);
 	memDc.SelectObject(pOldBitmap);
 }
 

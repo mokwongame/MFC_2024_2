@@ -68,5 +68,11 @@
     <Image Include="res\spaceship.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="res\spaceship_obj.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\spaceship_shadow.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
 </Project>
