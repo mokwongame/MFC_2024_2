@@ -245,22 +245,22 @@ BOOL CMyPainterDlg::PreTranslateMessage(MSG* pMsg)
 	if (pMsg->message == WM_KEYDOWN)
 	{
 		// 넘어온 키값을 확인: wParam(word parameter)
-		if (pMsg->wParam == VK_UP || pMsg->wParam == 'w' || pMsg->wParam == 'W')
+		if (pMsg->wParam == VK_UP || pMsg->wParam == 'W')
 		{
 			m_painter.moveBallUp();
 			return TRUE; // Dialog의 WM_KEYDOWN을 처리하는 함수를 없앰
 		}
-		else if (pMsg->wParam == VK_DOWN || pMsg->wParam == 's' || pMsg->wParam == 'S')
+		else if (pMsg->wParam == VK_DOWN || pMsg->wParam == 'S')
 		{
 			m_painter.moveBallDown();
 			return TRUE; // Dialog의 WM_KEYDOWN을 처리하는 함수를 없앰
 		}
-		else if (pMsg->wParam == VK_LEFT || pMsg->wParam == 'a' || pMsg->wParam == 'A')
+		else if (pMsg->wParam == VK_LEFT || pMsg->wParam == 'A')
 		{
 			m_painter.moveBallLeft();
 			return TRUE;
 		}
-		else if (pMsg->wParam == VK_RIGHT || pMsg->wParam == 'd' || pMsg->wParam == 'D')
+		else if (pMsg->wParam == VK_RIGHT || pMsg->wParam == 'D')
 		{
 			m_painter.moveBallRight();
 			return TRUE;
