@@ -209,6 +209,7 @@
     <None Include="res\SnakeGame.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\jungle.bmp" />
     <Image Include="res\SnakeGame.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
