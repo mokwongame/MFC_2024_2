@@ -11,6 +11,8 @@ public:
 	~GameScreen() // ¼Ò¸êÀÚ
 	{}
 
+	virtual BOOL Create(LPCTSTR lpszText, DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID = 0xffff);
+
 protected:
 	int m_nBkWid = 1000;
 	int m_nBkHt = 370;

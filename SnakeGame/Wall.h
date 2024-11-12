@@ -10,6 +10,8 @@ public:
 	void setRect(const CRect& rect)
 	{
 		m_rect = rect;
+		m_rect.right++;
+		m_rect.bottom++;
 	}
 
 	void draw(CDC* pDC);
