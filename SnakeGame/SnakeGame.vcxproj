@@ -190,6 +190,7 @@
     <ClInclude Include="SnakeGame.h" />
     <ClInclude Include="SnakeGameDlg.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Wall.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameScreen.cpp" />
@@ -201,6 +202,7 @@
     </ClCompile>
     <ClCompile Include="SnakeGame.cpp" />
     <ClCompile Include="SnakeGameDlg.cpp" />
+    <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SnakeGame.rc" />
@@ -209,7 +211,9 @@
     <None Include="res\SnakeGame.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\fruit.bmp" />
     <Image Include="res\jungle.bmp" />
+    <Image Include="res\snake.bmp" />
     <Image Include="res\SnakeGame.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

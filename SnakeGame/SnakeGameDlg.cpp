@@ -106,6 +106,11 @@ BOOL CSnakeGameDlg::OnInitDialog()
 	pWnd->GetWindowRect(rect); // 화면(screen) 좌표계
 	ScreenToClient(rect); // 화면 좌표계 -> 클라이언트 좌표계
 
+	// 다이얼로그 단위(dialog unit) -> 화면 단위(픽셀)
+	// 디버그로 확인: F5로 실행 시작, F10으로 한줄씩 실행
+	//CRect rtTest(0, 0, 1000, 1000); // (lt),(rb)
+	//MapDialogRect(rtTest); // (1000, 1000) -> (1750, 1750)
+
 	m_screen.Create(NULL, WS_VISIBLE | WS_CHILD | WS_CLIPCHILDREN | WS_CLIPSIBLINGS, rect, this);
 
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.

@@ -1,5 +1,6 @@
 #pragma once
 #include <afxwin.h>
+#include "Wall.h"
 
 class GameScreen :
 	public CStatic
@@ -13,6 +14,7 @@ public:
 protected:
 	int m_nBkWid = 1000;
 	int m_nBkHt = 370;
+	Wall m_wall;
 
 public:
 	DECLARE_MESSAGE_MAP()

@@ -36,6 +36,9 @@
     <ClInclude Include="GameScreen.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Wall.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SnakeGame.cpp">
@@ -48,6 +51,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="GameScreen.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Wall.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -66,6 +72,12 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="res\jungle.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\snake.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\fruit.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>
