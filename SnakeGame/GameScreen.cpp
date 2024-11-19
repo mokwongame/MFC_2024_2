@@ -30,6 +30,7 @@ void GameScreen::OnPaint()
 	CPaintDC dc(this); // device context for painting
 	// TODO: 여기에 메시지 처리기 코드를 추가합니다.
 	// 그리기 메시지에 대해서는 CStatic::OnPaint()을(를) 호출하지 마십시오.
+	m_snake.draw(&dc);
 }
 
 
@@ -41,5 +42,6 @@ BOOL GameScreen::Create(LPCTSTR lpszText, DWORD dwStyle, const RECT& rect, CWnd*
 	CRect rtClient;
 	GetClientRect(rtClient);
 	m_wall.setRect(rtClient);
+	m_snake.setPt(rtClient.CenterPoint());
 	return bResult;
 }
