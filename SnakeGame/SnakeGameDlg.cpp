@@ -7,6 +7,7 @@
 #include "SnakeGame.h"
 #include "SnakeGameDlg.h"
 #include "afxdialogex.h"
+#include "SnakeGameFun.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -111,6 +112,7 @@ BOOL CSnakeGameDlg::OnInitDialog()
 	//CRect rtTest(0, 0, 1000, 1000); // (lt),(rb)
 	//MapDialogRect(rtTest); // (1000, 1000) -> (1750, 1750)
 
+	randseed(); // 난수 초기화
 	m_screen.Create(NULL, WS_VISIBLE | WS_CHILD | WS_CLIPCHILDREN | WS_CLIPSIBLINGS, rect, this);
 	m_screen.SetTimer(SCREEN_TIMER, 1000 / FPS, NULL);
 

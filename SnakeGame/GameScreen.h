@@ -2,6 +2,7 @@
 #include <afxwin.h>
 #include "Wall.h"
 #include "Snake.h"
+#include "Fruit.h"
 
 #define SCREEN_TIMER	(1)
 #define FPS		(60)	// frame per second
@@ -27,6 +28,7 @@ protected:
 	int m_nBkHt = 370;
 	Wall m_wall;
 	Snake m_snake;
+	Fruit m_fruit;
 
 public:
 	DECLARE_MESSAGE_MAP()
