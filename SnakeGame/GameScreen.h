@@ -3,6 +3,9 @@
 #include "Wall.h"
 #include "Snake.h"
 
+#define SCREEN_TIMER	(1)
+#define FPS		(60)	// frame per second
+
 class GameScreen :
 	public CStatic
 {
@@ -14,6 +17,11 @@ public:
 
 	virtual BOOL Create(LPCTSTR lpszText, DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID = 0xffff);
 
+	void setSnakeDir(SnakeDir nDir)
+	{
+		m_snake.setDir(nDir);
+	}
+
 protected:
 	int m_nBkWid = 1000;
 	int m_nBkHt = 370;
@@ -24,5 +32,6 @@ public:
 	DECLARE_MESSAGE_MAP()
 	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 	afx_msg void OnPaint();
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 };
 

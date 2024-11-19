@@ -112,6 +112,7 @@ BOOL CSnakeGameDlg::OnInitDialog()
 	//MapDialogRect(rtTest); // (1000, 1000) -> (1750, 1750)
 
 	m_screen.Create(NULL, WS_VISIBLE | WS_CHILD | WS_CLIPCHILDREN | WS_CLIPSIBLINGS, rect, this);
+	m_screen.SetTimer(SCREEN_TIMER, 1000 / FPS, NULL);
 
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
 }
@@ -165,3 +166,24 @@ HCURSOR CSnakeGameDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+BOOL CSnakeGameDlg::PreTranslateMessage(MSG* pMsg)
+{
+	// TODO: 여기에 특수화된 코드를 추가 및/또는 기본 클래스를 호출합니다.
+	if (pMsg->message == WM_KEYDOWN)
+	{
+		if (pMsg->wParam == VK_LEFT)
+		{
+			m_screen.setSnakeDir(SnakeDir::LEFT);
+			return TRUE;
+		}
+		else if (pMsg->wParam == VK_RIGHT)
+		{
+			m_screen.setSnakeDir(SnakeDir::RIGHT);
+			return TRUE;
+		}
+	}
+
+	return CDialogEx::PreTranslateMessage(pMsg);
+}
