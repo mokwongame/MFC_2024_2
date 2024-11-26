@@ -23,6 +23,13 @@ void Fruit::draw(CDC* pDC)
 	memDc.SelectObject(pOldBitmap);
 }
 
+bool Fruit::isHit(const CRect& rect) const
+{
+	if (m_rect.PtInRect(rect.TopLeft()) || m_rect.PtInRect(rect.BottomRight()) || m_rect.PtInRect(CPoint(rect.left, rect.bottom)) || m_rect.PtInRect(CPoint(rect.right, rect.top))) return true;
+	else if (rect.PtInRect(m_rect.TopLeft()) || rect.PtInRect(m_rect.BottomRight()) || rect.PtInRect(CPoint(m_rect.left, m_rect.bottom)) || rect.PtInRect(CPoint(m_rect.right, m_rect.top))) return true;
+	else return false;
+}
+
 CRect Fruit::makeRect(void) const
 {
 	return CRect(m_pt.x - m_nWid / 2, m_pt.y - m_nHt / 2, m_pt.x + m_nWid / 2, m_pt.y + m_nHt / 2); // (l, t), (r, b) 순서로 입력

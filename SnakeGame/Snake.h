@@ -13,6 +13,11 @@ public:
 	~Snake()
 	{}
 
+	CRect getRect(void) const
+	{
+		return m_rect;
+	}
+
 	void setPt(const CPoint& pt)
 	{
 		m_pt = pt;

@@ -185,6 +185,16 @@ BOOL CSnakeGameDlg::PreTranslateMessage(MSG* pMsg)
 			m_screen.setSnakeDir(SnakeDir::RIGHT);
 			return TRUE;
 		}
+		else if (pMsg->wParam == VK_UP)
+		{
+			m_screen.setSnakeDir(SnakeDir::UP);
+			return TRUE;
+		}
+		else if (pMsg->wParam == VK_DOWN)
+		{
+			m_screen.setSnakeDir(SnakeDir::DOWN);
+			return TRUE;
+		}
 	}
 
 	return CDialogEx::PreTranslateMessage(pMsg);

@@ -31,6 +31,11 @@ void GameScreen::OnPaint()
 	CPaintDC dc(this); // device context for painting
 	// TODO: 여기에 메시지 처리기 코드를 추가합니다.
 	// 그리기 메시지에 대해서는 CStatic::OnPaint()을(를) 호출하지 마십시오.
+	if (!m_fruit.getEnable()) // Snake이 Fruit을 먹으면
+	{
+		m_fruit.setRandPt();
+		m_fruit.setEnable(true);
+	}
 	m_fruit.draw(&dc);
 	m_snake.draw(&dc);
 }
@@ -57,6 +62,10 @@ void GameScreen::OnTimer(UINT_PTR nIDEvent)
 	if (nIDEvent == SCREEN_TIMER)
 	{
 		m_snake.move();
+		if (m_fruit.isHit(m_snake.getRect()))
+		{
+			m_fruit.setEnable(false); // Snake이 Fruit을 먹음
+		}
 		Invalidate(TRUE);
 	}
 
