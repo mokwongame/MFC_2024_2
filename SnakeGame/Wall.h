@@ -15,6 +15,7 @@ public:
 	}
 
 	void draw(CDC* pDC);
+	bool isHit(const CRect& rect) const;
 
 protected:
 	CRect m_rect;

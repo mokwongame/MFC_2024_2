@@ -29,6 +29,7 @@ protected:
 	Wall m_wall;
 	Snake m_snake;
 	Fruit m_fruit;
+	bool m_bGameOver = false;
 
 public:
 	DECLARE_MESSAGE_MAP()

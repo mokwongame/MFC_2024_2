@@ -17,3 +17,9 @@ void Wall::draw(CDC* pDC)
 	pDC->SelectObject(pOldBrush);
 	pDC->SelectObject(pOldPen);
 }
+
+bool Wall::isHit(const CRect& rect) const
+{
+	if (rect.left <= m_rect.left + m_nThick || rect.right >= m_rect.right - m_nThick || rect.top <= m_rect.top + m_nThick || rect.bottom >= m_rect.bottom - m_nThick) return true;
+	else return false;
+}
