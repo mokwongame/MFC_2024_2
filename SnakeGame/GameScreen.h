@@ -26,10 +26,14 @@ public:
 protected:
 	int m_nBkWid = 1000;
 	int m_nBkHt = 370;
+	int m_nScore = 0;
 	Wall m_wall;
 	Snake m_snake;
 	Fruit m_fruit;
 	bool m_bGameOver = false;
+
+	void drawScore(CDC* pDC);
+	void drawGameOver(CDC* pDC);
 
 public:
 	DECLARE_MESSAGE_MAP()
