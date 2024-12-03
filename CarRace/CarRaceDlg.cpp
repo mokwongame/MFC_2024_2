@@ -107,6 +107,7 @@ BOOL CCarRaceDlg::OnInitDialog()
 	ScreenToClient(rect); // 화면 좌표계 -> 클라이언트 좌표계
 
 	m_screen.Create(NULL, WS_VISIBLE | WS_CHILD | WS_CLIPCHILDREN | WS_CLIPSIBLINGS, rect, this);
+	m_screen.SetTimer(TIMER_SCREEN, 1000 / m_screen.getFps(), NULL);
 
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
 }

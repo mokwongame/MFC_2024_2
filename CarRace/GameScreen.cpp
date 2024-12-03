@@ -3,6 +3,7 @@
 BEGIN_MESSAGE_MAP(GameScreen, CStatic)
 	ON_WM_ERASEBKGND()
 	ON_WM_PAINT()
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 
@@ -35,4 +36,17 @@ BOOL GameScreen::Create(LPCTSTR lpszText, DWORD dwStyle, const RECT& rect, CWnd*
 	m_road.setRect(rtClient);
 
 	return bResult;
+}
+
+
+void GameScreen::OnTimer(UINT_PTR nIDEvent)
+{
+	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
+	if (nIDEvent == TIMER_SCREEN)
+	{
+		m_road.moveDown();
+		Invalidate(TRUE);
+	}
+
+	CStatic::OnTimer(nIDEvent);
 }

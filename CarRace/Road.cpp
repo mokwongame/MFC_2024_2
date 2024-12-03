@@ -11,6 +11,8 @@ Road::Road(void)
 	m_nLineWid = 10;
 	m_nLineHt = 60;
 	m_nLaneSize = 100;
+	m_nLineOffset = 0;
+	m_nMoveStep = 5;
 }
 
 void Road::drawBack(CDC* pDC)
@@ -39,23 +41,40 @@ void Road::drawAllLines(CDC* pDC)
 	}
 }
 
+void Road::moveDown(void)
+{
+	m_nLineOffset += m_nMoveStep;
+	if (m_nLineOffset >= m_rect.Height())
+		m_nLineOffset = 0;
+}
+
 void Road::drawLine(CDC* pDC, int x)
 {
 	CBrush brush;
 	brush.CreateSolidBrush(m_nLineCol);
 	CPen pen;
 	pen.CreatePen(PS_NULL, 0, RGB(0, 0, 0));
-	int y = 0;
 	CBrush* pOldBrush = pDC->SelectObject(&brush);
 	CPen* pOldPen = pDC->SelectObject(&pen);
 
 	CRect rect;
+	// bottom lines
+	int y = m_nLineOffset;
 	while (1)
 	{
 		if (y >= m_rect.bottom) break;
 		rect = CRect(x - m_nLineWid / 2, y, x + m_nLineWid / 2, y + m_nLineHt);
 		pDC->Rectangle(rect);
 		y += m_nLineHt * 2;
+	}
+	// top lines
+	y = m_nLineOffset - m_nLineHt;
+	while (1)
+	{
+		if (y <= 0) break;
+		rect = CRect(x - m_nLineWid / 2, y - m_nLineHt, x + m_nLineWid / 2, y);
+		pDC->Rectangle(rect);
+		y -= m_nLineHt * 2;
 	}
 
 	pDC->SelectObject(pOldBrush);

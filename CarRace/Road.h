@@ -15,6 +15,8 @@ public:
 	void drawBack(CDC* pDC);
 	void drawAllLines(CDC* pDC);
 
+	void moveDown(void);
+
 protected:
 	CRect m_rect;
 	COLORREF m_nRoadCol;
@@ -24,6 +26,8 @@ protected:
 	int m_nLineWid;
 	int m_nLineHt;
 	int m_nLaneSize;
+	int m_nLineOffset;
+	int m_nMoveStep;
 
 	void drawLine(CDC* pDC, int x);
 };
