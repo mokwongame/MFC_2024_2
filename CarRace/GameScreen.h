@@ -38,6 +38,8 @@ protected:
 	Car m_enemy;
 	int m_fps = 80; // frame per second
 
+	bool m_bGameOver;
+
 public:
 	virtual BOOL Create(LPCTSTR lpszText, DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID = 0xffff);
 

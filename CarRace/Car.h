@@ -72,6 +72,8 @@ public:
 		return m_pt.y - m_nHt / 2;
 	}
 
+	CRect makeRect(void) const;
+
 protected:
 	CPoint m_pt;	// 자동차의 중심점
 	int m_nWid;

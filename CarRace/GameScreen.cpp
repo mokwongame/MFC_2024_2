@@ -29,6 +29,11 @@ void GameScreen::OnPaint()
 	m_road.drawBack(&dc);
 	m_road.drawAllLines(&dc);
 
+	if (m_bGameOver)
+	{
+		return;
+	}
+
 	m_car.draw(&dc);
 
 	if (!m_enemy.getEnable())
@@ -49,6 +54,8 @@ GameScreen::GameScreen(void)
 
 	m_enemy.setBitmap(IDB_TRUCK, 80, 158);
 	m_enemy.setStep(3);
+
+	m_bGameOver = false;
 }
 
 CPoint GameScreen::getRandPt(void) const
@@ -90,6 +97,10 @@ void GameScreen::OnTimer(UINT_PTR nIDEvent)
 		if (m_enemy.top() >= m_road.bottom())
 		{
 			m_enemy.setEnable(false);
+		}
+		else if (rectInRectAny(m_car.makeRect(), m_enemy.makeRect()))
+		{
+			m_bGameOver = true;
 		}
 		Invalidate(TRUE);
 	}
