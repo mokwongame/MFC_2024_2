@@ -2,6 +2,7 @@
 
 #include <afxwin.h>
 #include "Road.h"
+#include "Car.h"
 
 #define TIMER_SCREEN	(1)
 
@@ -22,6 +23,7 @@ public:
 
 protected:
 	Road m_road;
+	Car m_car;
 	int m_fps = 60; // frame per second
 
 public:

@@ -42,6 +42,9 @@
     <ClInclude Include="MemoryDC.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Car.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CarRace.cpp">
@@ -59,6 +62,9 @@
     <ClCompile Include="Road.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Car.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="CarRace.rc">
@@ -72,6 +78,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\CarRace.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\car.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>
