@@ -30,6 +30,12 @@ void GameScreen::OnPaint()
 	m_road.drawAllLines(&dc);
 
 	m_car.draw(&dc);
+
+	if (!m_enemy.getEnable())
+	{
+		m_enemy.setPt(getRandPt());
+		m_enemy.setEnable(true);
+	}
 	m_enemy.draw(&dc);
 }
 
@@ -42,7 +48,7 @@ GameScreen::GameScreen(void)
 	m_car.setStep(10);
 
 	m_enemy.setBitmap(IDB_TRUCK, 80, 158);
-	m_enemy.setStep(1);
+	m_enemy.setStep(3);
 }
 
 CPoint GameScreen::getRandPt(void) const
@@ -80,6 +86,11 @@ void GameScreen::OnTimer(UINT_PTR nIDEvent)
 	if (nIDEvent == TIMER_SCREEN)
 	{
 		m_road.moveDown();
+		m_enemy.moveDown();
+		if (m_enemy.top() >= m_road.bottom())
+		{
+			m_enemy.setEnable(false);
+		}
 		Invalidate(TRUE);
 	}
 

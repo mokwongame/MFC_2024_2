@@ -8,6 +8,7 @@ Car::Car(void)
 	m_step = 1;
 
 	m_nId = NULL;
+	m_bEnable = true;
 }
 
 void Car::draw(CDC* pDC)

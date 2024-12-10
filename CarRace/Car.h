@@ -14,6 +14,11 @@ public:
 		return m_nWid;
 	}
 
+	bool getEnable(void) const
+	{
+		return m_bEnable;
+	}
+
 	int getHt(void) const
 	{
 		return m_nHt;
@@ -37,6 +42,11 @@ public:
 		m_step = step;
 	}
 
+	void setEnable(bool bEnable)
+	{
+		m_bEnable = bEnable;
+	}
+
 	void move(int dx, int dy)
 	{
 		m_pt += CPoint(dx, dy);
@@ -52,6 +62,16 @@ public:
 		move(m_step, 0);
 	}
 
+	void moveDown(void)
+	{
+		move(0, m_step);
+	}
+
+	int top(void) const
+	{
+		return m_pt.y - m_nHt / 2;
+	}
+
 protected:
 	CPoint m_pt;	// 자동차의 중심점
 	int m_nWid;
@@ -59,5 +79,6 @@ protected:
 	int m_step;
 
 	int m_nId;
+	bool m_bEnable;
 };
 

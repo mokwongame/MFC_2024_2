@@ -23,6 +23,11 @@ public:
 
 	void moveDown(void);
 
+	int bottom(void) const
+	{
+		return m_rect.bottom;
+	}
+
 protected:
 	CRect m_rect;
 	COLORREF m_nRoadCol;
