@@ -6,6 +6,12 @@ public:
 	~Road()
 	{}
 
+	// getter
+	CRect getRect(void) const
+	{
+		return m_rect;
+	}
+
 	// setter
 	void setRect(const CRect& rect)
 	{

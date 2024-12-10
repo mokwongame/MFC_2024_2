@@ -5,6 +5,7 @@ Car::Car(void)
 {
 	m_nWid = 0;
 	m_nHt = 0;
+	m_step = 1;
 
 	m_nId = NULL;
 }

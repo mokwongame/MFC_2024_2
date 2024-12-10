@@ -186,6 +186,7 @@
     <ClInclude Include="Car.h" />
     <ClInclude Include="CarRace.h" />
     <ClInclude Include="CarRaceDlg.h" />
+    <ClInclude Include="CarRaceFun.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameScreen.h" />
     <ClInclude Include="MemoryDC.h" />
@@ -216,6 +217,7 @@
   <ItemGroup>
     <Image Include="res\car.bmp" />
     <Image Include="res\CarRace.ico" />
+    <Image Include="res\truck.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

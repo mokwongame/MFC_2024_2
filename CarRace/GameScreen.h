@@ -10,8 +10,7 @@ class GameScreen :
 	public CStatic
 {
 public:
-	GameScreen(void)
-	{}
+	GameScreen(void);
 	~GameScreen()
 	{}
 
@@ -21,10 +20,23 @@ public:
 		return m_fps;
 	}
 
+	CPoint getRandPt(void) const;
+
+	void moveCarLeft(void)
+	{
+		m_car.moveLeft();
+	}
+
+	void moveCarRight(void)
+	{
+		m_car.moveRight();
+	}
+
 protected:
 	Road m_road;
 	Car m_car;
-	int m_fps = 60; // frame per second
+	Car m_enemy;
+	int m_fps = 80; // frame per second
 
 public:
 	virtual BOOL Create(LPCTSTR lpszText, DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID = 0xffff);
