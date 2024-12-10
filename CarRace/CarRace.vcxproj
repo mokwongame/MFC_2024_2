@@ -187,6 +187,7 @@
     <ClInclude Include="CarRaceDlg.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameScreen.h" />
+    <ClInclude Include="MemoryDC.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Road.h" />
